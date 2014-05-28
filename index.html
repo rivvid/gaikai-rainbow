@@ -93,18 +93,16 @@
 				$(this).toggleClass('disabled');
 			});
 
-			colors = [];
 			$('.keys ul li').each(function (index, li) {
-				colors.push($(li).css('backgroundColor'));
 				$(this).append('<audio src="http://6654da272ec5f1645fb4-0f2bb683a73b43c21aa194b53e99ed57.r3.cf1.rackcdn.com/sfx'+(index+1)+'.mp3">').bind('click', function () {
 					$(this).find('audio').first()[0].play();					
 				});
 			});
 			setInterval(function () {
 				if (!musicPlaying) return false;
-				colors.unshift(colors.pop());
+				rcolors.unshift(rcolors.pop());
 				$('.keys ul li').each(function (index, li) {
-					$(li).css('backgroundColor',colors[index]);
+					$(li).css('backgroundColor',rcolors[index]);
 				});
 			},300);
 		});
